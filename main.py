@@ -120,7 +120,7 @@ async def process_word(message: types.Message, state: FSMContext):
 async def inline_kb_answer_callback_handler(query: types.CallbackQuery):
     answer_data = query.data
     # always answer callback queries, even if you have nothing to say
-    await query.answer(f'You answered with {answer_data!r}')
+    await query.answer('История игр:')
 
     if answer_data == 'yes':
         text = 'Great, me too!'
