@@ -1,6 +1,7 @@
 class HistoryItem:
-    def __init__(self, login, word, guesses, start_timestamp,
+    def __init__(self, id, login, word, guesses, start_timestamp,
                  finish_timestamp):
+        self.id = id
         self.login = login
         self.word = word
         self.guesses = guesses

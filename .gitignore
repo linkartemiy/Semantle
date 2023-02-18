@@ -90,3 +90,8 @@ telegram.jpg
 
 # virtual env
 venv*
+
+models/
+dictionaries/
+
+*.ipynb
