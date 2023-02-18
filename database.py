@@ -26,3 +26,12 @@ class Database:
                 history_item.start_timestamp,
                 history_item.finish_timestamp,
             ))
+
+    def get_history(self, login: str):
+        connection = self.connect()
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM history WHERE login = \'%s\'', (login, ))
+        history = []
+        for row in cursor:
+            history.append(HistoryItem(row[0], row[1], row[2], row[3], row[4]))
+        return history
