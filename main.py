@@ -118,16 +118,9 @@ async def process_word(message: types.Message, state: FSMContext):
 
 @dp.callback_query_handler(text='history')
 async def inline_kb_answer_callback_handler(query: types.CallbackQuery):
-    answer_data = query.data
-    # always answer callback queries, even if you have nothing to say
     await query.answer('История игр:')
 
-    if answer_data == 'yes':
-        text = 'Great, me too!'
-    elif answer_data == 'no':
-        text = 'Oh no...Why so?'
-    else:
-        text = f'Unexpected callback data {answer_data!r}!'
+    text = ''
 
     await bot.send_message(query.from_user.id, text)
 
