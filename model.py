@@ -12,8 +12,6 @@ class Model:
         self.model_path = pathlib.Path(__name__).parent.resolve().joinpath(os.getenv('MODEL_PATH'))
         self.dictionary_path = pathlib.Path(__name__).parent.resolve().joinpath(os.getenv('DICTIONARY_PATH'))
         self.model_binary = False
-        if self.model_path.endswith('.bin'):
-            self.model_binary = True
         self.loadRussianDictionary()
         self.model = gensim.models.KeyedVectors.load_word2vec_format(
             self.model_path, binary=self.model_binary)
