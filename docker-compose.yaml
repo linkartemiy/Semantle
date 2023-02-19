@@ -2,6 +2,8 @@ version: '3.8'
 services:
   telegram-bot:
     image: telegram-bot
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   db:
     image: postgres
     restart: always
@@ -15,3 +17,5 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./data/postgres/pgdata:/var/lib/postgresql/data/pgdata
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
