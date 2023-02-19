@@ -1,16 +1,23 @@
 import gensim
 import random
+import pathlib
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Model:
     def __init__(self):
+        self.model_path = pathlib.Path(__name__).parent.resolve().joinpath(os.getenv('MODEL_PATH'))
+        self.dictionary_path = pathlib.Path(__name__).parent.resolve().joinpath(os.getenv('DICTIONARY_PATH'))
+        self.model_binary = bool(os.getenv('MODEL_BINARY'))
         self.loadRussianDictionary()
         self.model = gensim.models.KeyedVectors.load_word2vec_format(
-            './models/model.bin', binary=True)
+            self.model_path, binary=self.model_binary)
 
     def loadRussianDictionary(self):
         self.rus_arr = []
-        with open('./dictionaries/russian.txt', 'r', encoding="utf-8") as f:
+        with open(self.dictionary_path, 'r', encoding="utf-8") as f:
             st = f.readline()
             while st:
                 self.rus_arr.append(f.readline().replace("\n", ""))
