@@ -68,7 +68,6 @@ async def inline_kb_answer_callback_handler(query: types.CallbackQuery,
     while not word.endswith('PROPN') or not word in model.model:
         word = model.getRandomWord()[0] + "_PROPN"
 
-    print(word)
     await state.update_data(word=word)
     await state.update_data(start_timestamp=datetime.now(timezone.utc))
 
