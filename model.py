@@ -6,7 +6,7 @@ class Model:
     def __init__(self):
         self.loadRussianDictionary()
         self.model = gensim.models.KeyedVectors.load_word2vec_format(
-            './models/model.bin', binary=True)
+            './models/tayga_1_2.vec', binary=False)
 
     def loadRussianDictionary(self):
         self.rus_arr = []
