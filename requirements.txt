@@ -6,3 +6,4 @@ asyncio==3.4.3
 psycopg2==2.9.5
 gensim==4.3.0
 python-dotenv
+pathlib

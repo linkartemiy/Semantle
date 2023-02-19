@@ -1,14 +1,17 @@
 import psycopg2
 from contextlib import closing
 from history_item import HistoryItem
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Database:
-    dbname = 'semantle'
-    user = 'postgres'
-    password = 'postgres'
-    host = 'host.docker.internal'
-    port = 5432
+    dbname = os.getenv('POSTGRES_DB')
+    user = os.getenv('POSTGRES_USER')
+    password = os.getenv('POSTGRES_PASSWORD')
+    host = os.getenv('POSTGRES_SERVER')
+    port = os.getenv('POSTGRES_PORT')
 
     def connect(self):
         return psycopg2.connect(dbname=self.dbname,
