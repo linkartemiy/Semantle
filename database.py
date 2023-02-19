@@ -7,7 +7,7 @@ class Database:
     dbname = 'semantle'
     user = 'postgres'
     password = 'postgres'
-    host = 'localhost'
+    host = 'host.docker.internal'
     port = 5432
 
     def connect(self):
