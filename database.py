@@ -50,5 +50,5 @@ class Database:
     def create_history(self):
         with closing(self.connect()) as connection:
             with connection.cursor() as cursor:
-                cursor.execute('CREATE TABLE history IF NOT EXISTS (id bigserial, login varchar(255), word varchar(255), guesses text, start_timestamp timestamp, finish_timestamp timestamp)')
+                cursor.execute('CREATE TABLE IF NOT EXISTS history (id bigserial, login varchar(255), word varchar(255), guesses text, start_timestamp timestamp, finish_timestamp timestamp)')
             connection.commit()
